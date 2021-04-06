@@ -60,11 +60,11 @@
                                             <h6>Đăng Nhập Bằng</h6>
                                             <div class="row">
                                                 <div class="col-6 mt-3">
-                                                    <a href="javascript:void(0)" class="btn btn-block btn-light"><i class="mdi mdi-facebook text-primary"></i> Facebook</a>
+                                                    <a href="{{ route('social.oauth', 'facebook') }}" class="btn btn-block btn-light"><i class="mdi mdi-facebook text-primary"></i> Facebook</a>
                                                 </div><!--end col-->
                                                 
                                                 <div class="col-6 mt-3">
-                                                    <a href="javascript:void(0)" class="btn btn-block btn-light"><i class="mdi mdi-google text-danger"></i> Google</a>
+                                                    <a href="{{ route('social.oauth', 'google') }}" class="btn btn-block btn-light"><i class="mdi mdi-google text-danger"></i> Google</a>
                                                 </div><!--end col-->
                                             </div>
                                         </div><!--end col-->

@@ -28,7 +28,8 @@
         <link href="{{ asset('') }}css/colors/default.css" rel="stylesheet" id="color-opt">
     </head>
 
-    <body>      
+    <body>   
+       
         @yield('content')
         @include('layout.notification')
 

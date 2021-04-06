@@ -85,20 +85,22 @@
                                                     <small class="text-muted">Ngày {{ $listComment->created_at->format('d-m-Y')}} ,vào lúc {{ $listComment->created_at->format('H:i')}}</small>
                                                 </div>
                                             </div>
-                                            <a href="#" class="text-muted"><i class="mdi mdi-reply"></i> Reply</a>
+                                            <a href="" class="text-muted"><i class="mdi mdi-reply"></i> Reply</a>
                                         </div>
                                         <div class="mt-3">
                                             <p class="text-muted font-italic p-3 bg-light rounded">" {{ $listComment->co_content }} "</p>
                                         </div>
                                     </li>
                                     @endforeach
-                                    @endif
+                                    @endif  
+                                 
                                 </ul>
                             </div>
                         </div>      
                         <div class="card shadow rounded border-0 mt-4">
                             <div class="card-body">
-                                <h5 class="card-title mb-0">Để Lại Bình Luận :</h5>
+                                <h5 class="card-title mb-0" id="reply">Để Lại Bình Luận :</h5>
+
                                 <form class="mt-3" method="post" action="{{ route('save.form.comment.article',$article->id) }}">
                                     @csrf
                                     <div class="row">
