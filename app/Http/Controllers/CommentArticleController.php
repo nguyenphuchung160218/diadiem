@@ -22,4 +22,21 @@ class CommentArticleController extends Controller
         $commentArticle->save();
         return redirect()->back()->with('success','Gửi bình luận thành công');
     }
+    public function replyArticle(Request $request)
+    {
+        $reply = new ReplyComment();
+
+        $reply->r_body = $request->get('r_body');
+
+        $reply->user()->associate($request->user());
+
+        $reply->parent_id = $request->get('r_parent_id');
+
+        $post = CommentArticle::find($request->get('r_comment_id'));
+
+        $post->comments()->save($reply);
+
+        return back();
+
+    }
 }

@@ -41,7 +41,7 @@ class ArticleController extends FrontendController
 
         //lay ds comment
         $listComments = CommentArticle::where('co_article_id',$article->id)->limit(6)->get();
-
+        
         //lay danh bai viet cung danh muc
         $articlesOther = Article::where([
                 'a_active' => Article::STATUS_PUBLIC,
