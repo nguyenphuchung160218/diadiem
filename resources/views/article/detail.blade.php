@@ -64,7 +64,7 @@
                             </div>
                             <div class="d-flex flex-row-reverse">
                                 <div class="p-3">
-                                    <iframe src="https://www.facebook.com/plugins/share_button.php?href={{$articleUrl}}&layout=button&size=large&width=87&height=28&appId" width="87" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                    <iframe src="https://m.facebook.com/plugins/share_button.php?href={{$articleUrl}}&layout=button&size=large&width=87&height=28&appId" width="87" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                                 </div>
                             </div>                         
                             <div class="card-body mt-4">                              

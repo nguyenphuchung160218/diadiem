@@ -14,7 +14,7 @@ class HomeController extends FrontendController
     }
     public function index()
     {
-    	$stores = Store::paginate(12);
+    	$stores = Store::where('sto_active',Store::STATUS_PUBLIC)->paginate(12);
     	$areas = Area::all();
     	$viewData =[
     		'stores' => $stores,

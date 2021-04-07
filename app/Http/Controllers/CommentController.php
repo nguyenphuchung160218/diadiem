@@ -11,7 +11,6 @@ class CommentController extends Controller
 {
     public function saveComment(Request $request,$id)
     {
-
         Comment::insert([
             'co_store_id' => $id,
             'co_content' => $request->co_content,

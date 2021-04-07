@@ -5,12 +5,12 @@
         <meta charset="utf-8" />
         <title>Địa Điểm Tây Nguyên</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Premium Bootstrap 4 Landing Page Template" />
-        <meta name="keywords" content="Saas, Software, multi-uses, HTML, Clean, Modern" />
-        <meta name="author" content="Shreethemes" />
-        <meta name="email" content="shreethemes@gmail.com" />
-        <meta name="website" content="http://www.shreethemes.in" />
-        <meta name="Version" content="v2.6" />
+        <meta name="description" content="Khám phá ngay các địa điểm, hoạt động du lịch và ăn uống cho hành trình du lịch của bạn tại Địa Điểm Tây Nguyên." />
+        <meta name="keywords" content="Địa điểm tây nguyên, Địa điểm, Tây nguyên, Quán cafe đẹp buôn ma thuột, Top quán cà phê đẹp ở bmt, Quán ăn ngon ở tây nguyên" />
+        <meta name="author" content="NguyenPhucHung" />
+        <meta name="email" content="nguyenphuchung120800@gmail.com" />
+        <meta name="website" content="http://www.diadiemtaynguyen.cf/" />
+        <meta name="Version" content="v1.1" />
         <!-- favicon -->
         <link rel="shortcut icon" href="{{ asset('') }}images/favicon.ico">
         <!-- Bootstrap -->
