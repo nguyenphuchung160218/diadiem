@@ -20,6 +20,10 @@ Route::group(['namespace'=>''],function (){
     Route::get('dang-nhap','App\Http\Controllers\Auth\LoginController@getLogin')->name('get.login');
     Route::post('dang-nhap','App\Http\Controllers\Auth\LoginController@postLogin')->name('post.login');
     Route::get('dang-xuat','App\Http\Controllers\Auth\LoginController@getLogout')->name('get.logout');  
+    // dang nhap bang google va facebook
+    Route::get('auth/social', 'App\Http\Controllers\Auth\LoginController@show')->name('social.login');
+    Route::get('oauth/{driver}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider')->name('social.oauth');
+    Route::get('oauth/{driver}/callback', 'App\Http\Controllers\Auth\LoginController@handleProviderCallback')->name('social.callback');
 });
 
 //user
@@ -63,8 +67,9 @@ Route::view('/ho-tro-khach-hang', 'info.support')->name('get.support');
 //comment
    
 Route::post('commentArticle/{id}','App\Http\Controllers\CommentArticleController@saveComment')->name('save.form.comment.article');
+// Route::post('commentArticle/{id}','App\Http\Controllers\ReplyCommentController@replyComment')->name('save.form.replyComment.article');
 
-Route::post('commentStore/{id}','App\Http\Controllers\CommentController@saveComment')->name('save.form.comment.store');
+Route::post('commentStore/{id}','App\Http\Controllers\CommentArticleController@replyArticle')->name('save.form.comment.store');
    
 
 //heart
@@ -72,3 +77,4 @@ Route::group(['prefix'=>'heart'],function (){
     Route::get('/{id}','App\Http\Controllers\HeartController@getHeart')->name('get.heart');
 });
 
+// dang nhap bang

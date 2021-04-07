@@ -65,8 +65,9 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="text-sm-left">
-                            <p class="mb-0">© 2019-20 ShoesShop. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="" target="_blank" class="text-reset">FingerG</a>.</p>
+                            <p class="mb-0">© 2019-20 ShoesShop. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="" target="_blank" class="text-reset">FingerG </a>.</p>
                         </div>
+           
                     </div><!--end col-->
 
                     <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
