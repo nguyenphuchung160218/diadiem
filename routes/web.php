@@ -27,14 +27,15 @@ Route::group(['namespace'=>''],function (){
 });
 
 //user
-
 Route::group(['prefix'=>'user','middleware'=>'App\Http\Middleware\CheckLoginUser'],function (){
     Route::get('tai-khoan','App\Http\Controllers\UserController@getUser')->name('get.user');
     Route::post('tai-khoan','App\Http\Controllers\UserController@postUser');
     Route::get('dang-bai','App\Http\Controllers\UserController@getPost')->name('get.user.post');
     Route::post('dang-bai','App\Http\Controllers\UserController@postStore');
     Route::get('cai-dat','App\Http\Controllers\UserController@getSetting')->name('get.user.setting');
-    Route::post('cai-dat','App\Http\Controllers\UserController@postSetting');
+    Route::post('updateInfo','App\Http\Controllers\UserController@updateInfo')->name('updateInfo');
+    Route::post('updatePassword','App\Http\Controllers\UserController@updatePassword')->name('updatePassword');
+    Route::get('delete/{id}','App\Http\Controllers\UserController@destroy')->name('get.user.destroy');
 });
 
 //home

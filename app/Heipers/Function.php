@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Str;
+use App\Models\User;
+use App\Models\Store;
 
 if (!function_exists('upload_image'))// trả về giá trị TRUE nếu hàm đã tồn tại và ngược lại FALSE nếu chưa tồn tại. -> neu ham ko ton tai moi thuc hien upload_image
 {
@@ -121,3 +123,15 @@ if (!function_exists('get_data_user'))
         return Auth::guard($type)->user() ? Auth::guard($type)->user()->$field : '';
     }
 }
+if (!function_exists('get_user_id'))
+{
+    function get_user_id($id,$field = 'id')
+    {
+    
+        if($id){
+            $user = User::find($id);
+            return $user->$field;
+        }       
+    }
+}
+

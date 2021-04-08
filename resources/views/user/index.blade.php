@@ -98,35 +98,32 @@
 
         <h5 class="mt-4 mb-0">Bài Đăng :</h5>
         <div class="row">
-            @if(isset($stores))                       
-            @foreach($stores as $store)
-            <div class="col-md-6 mt-4 pt-2">
-                <div class="card blog rounded border-0 shadow overflow-hidden">
-                    <a href="{{ route('get.detail.store',[$store->category->c_slug,$store->sto_slug]) }}">
+            @if(isset($articles))                       
+            @foreach($articles as $article)
+            <div class="col-lg-6 col-md-12 mb-4 pb-2">
+                <div class="card blog rounded border-0 shadow">
+                    <a href="{{ route('get.detail.article',$article->a_slug) }}">
                         <div class="position-relative">                                       
-                            <img width="350px" height="233px" src="<?php                            
-                                if(substr($store->sto_avatar,0,4)=='http'){
-                                    echo $store->sto_avatar;                                    
-                                }
-                                else{
-                                    echo asset(pare_url_file($store->sto_avatar,'store'));
-                                }
-                                ?>
-                                " class="card-img-top rounded-top" alt="...">
+                            <img src="{{ asset(pare_url_file($article->a_avatar)) }}" class="card-img-top rounded-top" alt="...">
                         <div class="overlay rounded-top bg-dark"></div>
                         </div>
                     </a>
                     <div class="card-body content">
-                        <h5><a href="{{ route('get.detail.store',[$store->category->c_slug,$store->sto_slug]) }}" class="card-title title text-dark">{{ $store->sto_name }}</a></h5>
+                        <h5><a href="{{ route('get.detail.article',$article->a_slug) }}" class="card-title title text-dark">{{ $article->a_name }}</a></h5>
                         <div class="post-meta d-flex justify-content-between mt-3">
-                            <h6 class="text-muted small font-italic mb-0 mt-1"><i class="uil uil-map-marker-alt"></i>{{ $store->sto_address }}</h6>
+                            <ul class="list-unstyled mb-0">
+                                <li class="list-inline-item mr-2 mb-0"><a href="javascript:void(0)" class="text-muted like"><i class="mdi mdi-eye-outline mr-1"></i>{{ $article->a_view }}</a></li>
+                                <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><i class="mdi mdi-comment-outline mr-1"></i>{{ $article->a_comment }}</a></li>
+                            </ul>
+                            <a href="{{ route('get.detail.article',$article->a_slug) }}" class="text-muted readmore">Xem Thêm <i class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="author">
-                        <a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a>                             
+                        <small class="text-light user d-block"><i class="mdi mdi-account"></i> {{ get_data_user('web','name') }}</small>
+                        <small class="text-light date"><i class="mdi mdi-calendar-check"></i> {{ $article->created_at->format('d-m-Y') }}</small>
                     </div>
                 </div>
-            </div><!--end col-->
+            </div><!--end col-->  
             @endforeach
             @endif
 

@@ -13,13 +13,13 @@ class FrontendController extends Controller
 {
     public function __construct()
     {
-        $cagetories = Category::where('c_home',Category::HOME_PUBLIC)
+        $categories = Category::where('c_home',Category::HOME_PUBLIC)
         ->get();
         $areas = Area::all();
         $categoryArticle= CategoryArticle::all();
         View::share([
             'categoryArticle' => $categoryArticle,
-        	'categories'=>$cagetories,
+        	'categories'=>$categories,
         	'areas'=>$areas
         ]);
         

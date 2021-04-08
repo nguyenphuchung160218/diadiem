@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Store;
-use App\Http\Requests\RequestStore;
 use Illuminate\Support\Str;
+use App\Http\Requests\RequestStore;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends FrontendController
 {
@@ -59,10 +60,56 @@ class UserController extends FrontendController
         }
 
         $store->save();
-        return redirect()->back()->with('success','Đăng bài thành công');
+        return redirect()->back()->with('success','Đăng bài thành công, chờ Admin kiểm duyệt');
     }
     public function getSetting()
     {
-    	return view('user.setting');
+        //info user
+        $user=User::find(get_data_user('web'));
+    	return view('user.setting',compact('user'));
+    }
+    public function updateInfo(RequestStore $request)
+    {
+        $user=User::find(get_data_user('web'));
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->phone=$request->number;
+        $user->address=$request->address;
+        if($request->hasFile('avatar'))
+        {
+            $file = upload_image('avatar');
+            if(isset($file['name']))
+            {
+                $user->avatar = $file['name'];
+            }
+        }
+        $user->save();
+        return redirect()->back()->with('success','Cập nhật thông tin thành công');
+    }
+    public function updatePassword(RequestStore $request)
+    {
+        $user=User::find(get_data_user('web'));
+        if(Hash::check($request->password,$user->password))
+        {
+            if($request->newpassword==$request->repassword)
+            {
+                $user->password=bcrypt($request->newpassword);
+                $user->save();
+                return redirect()->back()->with('success','Thay đổi mật khẩu thành công');
+            }
+            else{
+                return redirect()->back()->with('danger','Nhập lại mật khẩu không đúng');
+            }
+        }
+        else{
+            return redirect()->back()->with('danger','Nhập sai mật khẩu');
+        }    
+    }
+
+    public function destroy()
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back()->with('success','Xóa tài khoản thành công');
     }
 }

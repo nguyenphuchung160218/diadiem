@@ -12,7 +12,7 @@
         <meta name="website" content="http://www.diadiemtaynguyen.cf/" />
         <meta name="Version" content="v1.1" />
         <!-- favicon -->
-        <link rel="shortcut icon" href="{{ asset('') }}images/favicon.ico">
+        <link rel="shortcut icon" href="{{ asset('') }}images/logo.png">
         <!-- Bootstrap -->
         <link href="{{ asset('') }}css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons -->

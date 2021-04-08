@@ -30,14 +30,14 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'facebook' => [
-    'client_id'     => env('FB_ID'),
-    'client_secret' => env('FB_SECRET'),
+    'client_id'     => '254990979651713',
+    'client_secret' => 'b1127f48ca97f8603cad5daca764335d',
     'redirect'      => 'http://localhost:81/diadiem/public/oauth/facebook/callback',
     ],
 
     'google' => [
-    'client_id'     => env('GL_ID'),
-    'client_secret' => env('GL_SECRET'),
+    'client_id'     => '709969517325-1h6l43lohqr2a9qubo458hvmj3klpoih.apps.googleusercontent.com',
+    'client_secret' => '8EDwe6ylDG9IHn_fWUDqHqiT',
     'redirect'      => 'http://localhost:81/diadiem/public/oauth/google/callback',
 ],
 
