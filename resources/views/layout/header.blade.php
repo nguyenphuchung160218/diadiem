@@ -4,7 +4,7 @@
                 <!-- Logo container-->
                 <div>
                     <a class="logo" href="{{ route('home') }}">
-                        <img src="images/logo.png" height="50" alt="">
+                        <img src="{{ asset('')}}images/logo.png" height="50" alt="">
                     </a>
                 </div>                 
                 <ul class="buy-button list-inline mb-0">
@@ -71,24 +71,7 @@
                                 <li class="has-submenu"><a href="{{ route('get.find.category',$category->c_slug) }}"> {{ $category->c_name }} </a><span class="submenu-arrow"></span>
                                     <ul class="submenu" style="margin-top: <?php echo $s;$s+=-36; ?>px">
                                         <div class="row no-gutters" style="width: 865px;height:550px">
-                                            @if(1==2))  
-                                            <div class="col-md-4">
-                                                <div class="bg-white m-1">
-                                                    <div class="item mt-1 mb-1">
-                                                        <a style="padding: 0 10px" href="">
-                                                            <img src="{{ asset(pare_url_file('.$value->sto_avatar.',"store")) }}" class="img-fluid">
-                                                        </a>                                              
-                                                        <div style="padding: 10px 10px" class="info">
-                                                            <a style="padding: 0" class="" href="">'.$value->sto_name.' – '.$value->sto_title.'</a>
-                                                            <span style="display: block;color: #888;font-size: 13px;"><i class="fas fa-map-marker-alt"></i> '.$value->sto_address.' </span>
-                                                        </div>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                            {{store($category->id)}}
-                                            @else
-                                            <h5 style="width: 865px" class="text-danger text-center">Không có quán nào</h5>
-                                            @endif    
+                                            {!! store($category->id) !!}  
                                         </div>
                                     </ul> 
                                 </li>

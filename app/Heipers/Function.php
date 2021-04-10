@@ -135,3 +135,43 @@ if (!function_exists('get_user_id'))
     }
 }
 
+if (!function_exists('store'))
+{
+    function store($id)
+    {
+        $html='';
+        $store = Store::where(['sto_active'=>Store::STATUS_PUBLIC,'sto_category_id'=>$id])->limit(6)->get();
+        if(count($store)>0)
+        {
+            foreach ($store as $key => $value) {
+                $route=route('get.detail.store',[$value->category->c_slug,$value->sto_slug]);
+                if(substr($value->sto_avatar,0,4)=='http'){
+                    $a=$value->sto_avatar;
+                }
+                else{
+                    $a=asset(pare_url_file($value->sto_avatar,'store'));
+                }
+                $html.='
+                    <div class="col-md-4">
+                        <div class="bg-white m-1">
+                            <div class="item mt-1 mb-1">
+                                <a style="padding: 0 10px" href="'.$route.'">
+                                    <img src="'.$a.'" class="img-fluid">
+                                </a>                                              
+                                <div style="padding: 10px 10px" class="info">
+                                    <a style="-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;display: -webkit-box;padding: 0" class="" href="'.$route.'">'.$value->sto_name.'</a>
+                                    <span style="display: block;color: #888;font-size: 13px;"><i class="fas fa-map-marker-alt"></i> '.$value->sto_address.' </span>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                ';
+            }
+        }
+        else{
+            $html='<h5 style="width: 865px" class="text-danger text-center">Không có quán nào</h5>';
+        }
+        return $html;    
+    }
+}
+
